@@ -1,2 +1,0 @@
-# LESTER
-Presnetacion dinámicas lester 
