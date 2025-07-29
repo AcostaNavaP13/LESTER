@@ -178,9 +178,16 @@
                     "¿Qué diferencia existe entre una garantía total y una prorrateada?",
                     "¿Cuál es el papel del vendedor en el proceso de solicitud de garantía?"
                 ]
+            },
+            {
+                section: "VI. Comentarios y Sugerencias",
+                questions: [
+                    "¿Hay algún tema que no se contemple en esta evaluación y que te gustaría explorar? Tu retroalimentación es muy valiosa. (Opcional)"
+                ]
             }
         ];
         const totalQuestions = examData.flatMap(s => s.questions).length;
+        const requiredQuestions = totalQuestions - 1; // Exclude the last optional question from validation
 
         // --- Helper function to format time ---
         function formatTime(ms) {
@@ -285,7 +292,7 @@
         document.getElementById('generate-pdf').addEventListener('click', function () {
             // --- Validation Step ---
             let firstUnanswered = null;
-            for (let i = 1; i <= totalQuestions; i++) {
+            for (let i = 1; i <= requiredQuestions; i++) {
                 const textarea = document.getElementById(`q${i}`);
                 const checkbox = document.getElementById(`chk${i}`);
                 
